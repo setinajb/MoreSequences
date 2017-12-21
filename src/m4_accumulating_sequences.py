@@ -414,19 +414,19 @@ def rectangles_from_circles(circles):
     #            in this function, so DON'T draw anything in here!
     ####################################################################
     # ------------------------------------------------------------------
-    window = rg.RoseWindow(400, 400)
 
+    rectangles = []
     for k in range(len(circles)):
-        circles[k].attach_to(window)
         rect_upper_x = circles[k].center.x - circles[k].radius
         rect_upper_y = circles[k].center.y - circles[k].radius
         rect_upper_point = rg.Point(rect_upper_x, rect_upper_y)
         rect_lower_x = circles[k].center.x + circles[k].radius
         rect_lower_y = circles[k].center.y + circles[k].radius
         rect_lower_point = rg.Point(rect_lower_x, rect_lower_y)
-        rectangle = rg.Rectangle(rect_upper_point, rect_lower_point)
-        rectangle.attach_to(window)
-    window.render()
+        new_rect = rg.Rectangle(rect_upper_point, rect_lower_point)
+        rectangles = rectangles + [new_rect]
+    return rectangles
+
 
 
 # ----------------------------------------------------------------------
