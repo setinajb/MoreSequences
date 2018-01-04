@@ -18,7 +18,7 @@ def main():
     run_test_make_less_simple_string()
 
     # ------------------------------------------------------------------
-    # TODO: 8. Uncomment the tests below before working TO DO 9.
+    # DONE: 8. Uncomment the tests below before working TO DO 9.
     #   They launch annoying rg.RoseWindows on each run that you don't want
     #   until you get to TO DO 9 and 10.
     # ------------------------------------------------------------------
@@ -403,7 +403,7 @@ def rectangles_from_circles(circles):
       :rtype: list of rg.Rectangles
     """
     # ------------------------------------------------------------------
-    # TODO: 10. Implement and test this function.
+    # DONE: 10. Implement and test this function.
     #     The testing code is already written for you (above).
     #
     ####################################################################
@@ -417,17 +417,16 @@ def rectangles_from_circles(circles):
 
     rectangles = []
     for k in range(len(circles)):
-        rect_upper_x = circles[k].center.x - circles[k].radius
-        rect_upper_y = circles[k].center.y - circles[k].radius
+        circle = circles[k]
+        rect_upper_x = circle.center.x - circle.radius
+        rect_upper_y = circle.center.y - circle.radius
         rect_upper_point = rg.Point(rect_upper_x, rect_upper_y)
-        rect_lower_x = circles[k].center.x + circles[k].radius
-        rect_lower_y = circles[k].center.y + circles[k].radius
+        rect_lower_x = circle.center.x + circle.radius
+        rect_lower_y = circle.center.y + circle.radius
         rect_lower_point = rg.Point(rect_lower_x, rect_lower_y)
         new_rect = rg.Rectangle(rect_upper_point, rect_lower_point)
         rectangles = rectangles + [new_rect]
     return rectangles
-
-
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
