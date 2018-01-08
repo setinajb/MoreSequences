@@ -92,10 +92,11 @@ def main():
 
     format_string1 = 'Multiplication: {:3} x {:3} = {:6}'
     format_string2 = 'Division: {:5.1f} / {:5.1f} = {:6.3f}'
-    print(format_string1.format(311, 80, 311 * 80))
+    print(format_string1.format(311, 8090, 3911 * 80))
     print(format_string1.format(50, 222, 50 * 222))
     print(format_string2.format(311, 80, 311 / 80))
     print(format_string2.format(50, 222, 50 / 222))
+    print(format_string2.format(50, 1000000000/3, 100000000 / 3))
 
 
 # ----------------------------------------------------------------------

@@ -7,17 +7,17 @@ for ITERATING through SEQUENCES, including:
   -- The FIND pattern (via LINEAR SEARCH)
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Jaclyn Setina.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
 
 def main():
     """ Calls the   TEST   functions in this module. """
-    run_test_sum_radii()
-    run_test_count_last_n_odds()
-    run_test_index_of_first_negative()
+    # run_test_sum_radii()
+    # run_test_count_last_n_odds()
+    # run_test_index_of_first_negative()
     run_test_contains_an_a()
 
 
@@ -75,7 +75,7 @@ def sum_radii(circles):
       :type circles:  list[rg.Circle]    or tuple(rg.Circle)
     """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #     The testing code is already written for you (above).
     #
     # Note: No fair using "slices" on ANY of these problems,
@@ -87,11 +87,18 @@ def sum_radii(circles):
     #       Instead, use explicit loops, as you have for other problems.
     # ------------------------------------------------------------------
 
+    total = 0
+    for k in range(len(circles)):
+        circle = circles[k]
+        total = total + circle.radius
+    return total
 
 # ----------------------------------------------------------------------
 # Some problems iterate (loop) through PART of the sequence,
 # perhaps BACKWARDS, as in the   count_last_n_odds   problem below.
 # ----------------------------------------------------------------------
+
+
 def run_test_count_last_n_odds():
     """ Tests the   count_last_n_odds   function. """
     print()
@@ -149,9 +156,15 @@ def count_last_n_odds(integers, n):
       :type n:        int
     """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #     The testing code is already written for you (above).
     # ------------------------------------------------------------------
+
+    num_neg = 0
+    for k in range(len(integers)-1, len(integers)-n-1, -1):
+        if integers[k] % 2 == 1:
+            num_neg = num_neg + 1
+    return num_neg
 
 
 # ----------------------------------------------------------------------
@@ -223,9 +236,15 @@ def index_of_first_negative(numbers):
       :type numbers: list[float]   or tuple[float]
     """
     # ------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #     The testing code is already written for you (above).
     # ------------------------------------------------------------------
+
+    for k in range(len(numbers)):
+        is_negative = numbers[k] < 0
+        if is_negative:
+            return k
+    return -1
 
 
 def run_test_contains_an_a():
@@ -280,7 +299,7 @@ def contains_an_a(s):
       :type s: str
     """
     # ------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # DONE: 5. Implement and test this function.
     #     The testing code is already written for you (above).
     #
     ####################################################################
@@ -294,6 +313,13 @@ def contains_an_a(s):
     #   No fair using the   count   or   find   string methods.
     # ------------------------------------------------------------------
 
+    # for k in range(0, len(s)+1): # for val in [0, 1, 2, 3, 4, ...]
+    #     character = s[k]
+
+    for character in s:  # for val in ['a', 'b', 'c', 'd', ...]
+        if character == 'a':
+            return True
+    return False
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
